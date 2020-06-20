@@ -42,10 +42,10 @@ export function Navigation() {
           
           <NavItem path="/" name="Home" />
           <NavDropdown name="Exams">
-            <a className="dropdown-item" href="/"><DataFetching /></a>
+            <a className="dropdown-item" href="/"><DataFetching name="Exams"/></a>
           </NavDropdown>
           <NavDropdown name="Streams">
-            <a className="dropdown-item" href="/">Streams</a>
+            <a className="dropdown-item" href="/"><DataFetching name="Streams"/></a>
           </NavDropdown>
         
           </ul>
