@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
-import { DataFetching } from './exams/component';
+import { DataFetching } from './exams/component'
+import {Navigation} from './components/Navigation'
 
 function App() {
   return (
-    <div className="App">
-        <DataFetching />
+    <div>
+      <Navigation /> 
+        <div className="container">
+          <DataFetching />
+        </div>
     </div>
   );
 }
