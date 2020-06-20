@@ -1,4 +1,5 @@
 import React from 'react';
+import { DataFetching } from '../exams';
 
 export function NavItem (props) {
         const pageURI = window.location.pathname+window.location.search
@@ -40,10 +41,8 @@ export function Navigation() {
           <ul className="navbar-nav mr-auto">
           
           <NavItem path="/" name="Home" />
-          <NavItem path="/page2" name="Streams" />
-          <NavItem path="/page3" name="Disabled" disabled="true" />
           <NavDropdown name="Exams">
-            <a className="dropdown-item" href="/">Exams</a>
+            <a className="dropdown-item" href="/"><DataFetching /></a>
           </NavDropdown>
           <NavDropdown name="Streams">
             <a className="dropdown-item" href="/">Streams</a>

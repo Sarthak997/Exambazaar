@@ -5,11 +5,9 @@ import {Navigation} from './components/Navigation'
 
 function App() {
   return (
-    <div>
-      <Navigation /> 
-        <div className="container">
+    <div className>
+      <Navigation />   
           <DataFetching />
-        </div>
     </div>
   );
 }

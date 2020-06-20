@@ -22,14 +22,11 @@ export function DataFetching(props) {
     return (
         <div>
             <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Exams
-                </button>
                 {
                     exams.map(exam => <li>
                         <a href = {exam.name} target = "_blank">  {exam.name}</a>
                         </li>)  
-               }
+                }
                </div>
             <ul>{
                 streams.map(stream => <li key={stream.id}>{stream.name}</li>)
