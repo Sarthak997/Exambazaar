@@ -20,13 +20,19 @@ export function DataFetching(props) {
             .catch(error => {
                 console.log(error)
             })
-    }, [])
+    }, [exams, streams, props.name])
+
+        const handleClick = (event) => {
+            event.preventDefault()
+            <RandomQuestionFetch exams/>
+
+        }
 
     return (
                 <ul>
                 {
                     exams.map(exam => <li>
-                        <a href = {exam.name} target = "_blank">  {exam.name}</a>
+                        <a href = {exam.name} onClick={handleClick}target = "_blank">  {exam.name}</a>
                         </li>)  
                 }
 
@@ -37,3 +43,5 @@ export function DataFetching(props) {
                 </ul>
     );
 }
+
+

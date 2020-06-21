@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import { DataFetching } from './exams/component'
+import { RandomQuestionFetch } from './exams/component'
 import {Navigation} from './components/Navigation'
 
 function App() {
   return (
-    <div className>
+    <div>
       <Navigation />   
+      <RandomQuestionFetch /> 
     </div>
+    
   );
 }
 
