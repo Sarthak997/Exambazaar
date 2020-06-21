@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import axios from 'axios'
 import {RandomQuestionFetch} from './Questions'
 
@@ -7,41 +8,31 @@ export function DataFetching(props) {
     const api_key = 9116937670
     const [exams, setExams] = useState([])
     const [streams, setStreams] = useState([])
-    useEffect(() => {
-        axios.get(`https://www.exambazaar.com/api/coding-round/routes/exam-info/${api_key}`)
-            .then(response => {
-                if (props.name === "Exams"){
-                setExams(response.data.data.exams)
-            } else {
-                setStreams(response.data.data.streams)
-            }
+    const [examId, setExamId] = useState()
 
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }, [exams, streams, props.name])
 
-        const handleClick = (event) => {
+        const handleClick = (event, Id) => {
             event.preventDefault()
-            var examId = exams._id
+            setExamId(Id)
             
 
         }
 
-    return (
+    return (   
+        <Router>
+        <div>
+         <Route path='/exam/:examId' component={RandomQuestionFetch} />
+
                 <ul>
                 {
-                    exams.map(exam => <li>
-                        <a href = {exam.name} onClick={handleClick} target = "_blank">{exam.name}</a>
+                    props.data[props.name].map(exam => <li>
+                        <Link to={`/exam/${exam._id}`}>{exam.name}</Link>
                         </li>)  
-                }
-
-                {
-                streams.map(stream => <li>{stream.name}</li>)
                 }
                 
                 </ul>
+                </div>
+         </Router>
     );
 }
 
