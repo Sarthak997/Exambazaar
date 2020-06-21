@@ -9,7 +9,7 @@ export function List({ data, title, showButton }) {
         <div
           key={d.name}
           className="card"
-          style={{ width: "15%", display: "inline-block", margin: "2.5%" }}
+          style={{ width: "20%", display: "inline-block", margin: "2.5%" }}
         >
           {d.logo && (
             <img
