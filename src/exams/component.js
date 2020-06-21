@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-
+import {RandomQuestionFetch} from './Questions'
 
 export function DataFetching(props) {
 
@@ -24,7 +24,8 @@ export function DataFetching(props) {
 
         const handleClick = (event) => {
             event.preventDefault()
-            <RandomQuestionFetch exams/>
+            var examId = exams._id
+            
 
         }
 
@@ -32,7 +33,7 @@ export function DataFetching(props) {
                 <ul>
                 {
                     exams.map(exam => <li>
-                        <a href = {exam.name} onClick={handleClick}target = "_blank">  {exam.name}</a>
+                        <a href = {exam.name} onClick={handleClick} target = "_blank">{exam.name}</a>
                         </li>)  
                 }
 

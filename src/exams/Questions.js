@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-
+import {DataFetching} from './component'
 
 
 
@@ -8,11 +8,11 @@ import axios from 'axios'
 
 export function RandomQuestionFetch(props) {
 
+    const examId = props.examId
     const [newQuestion, setNewQuestion] = useState([])
     const [answers, setAnswers] = useState([])
     const [context, setContext] = useState([])
     const [contextIsThere, setContextIsThere] = useState(false)
-    const examId = "58ac2c987e852a2c401a8c42"
     useEffect(()=>{
         axios.post("https://www.exambazaar.com/api/coding-round/routes/random-question", {
             api_key: "9116937670",
