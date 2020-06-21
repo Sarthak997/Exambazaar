@@ -1,6 +1,3 @@
-import {NavItem} from './Navigation'
+import { NavItem } from "./Navigation";
 
-
-export {
-    NavItem,
-}
+export { NavItem };
