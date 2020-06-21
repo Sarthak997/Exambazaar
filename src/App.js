@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Axios from "axios";
+
 import "./App.css";
 import { Navigation } from "./components/Navigation";
-import Axios from "axios";
-import { List } from "./components/List";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Home } from "./components/Home";
 import { RandomQuestion } from "./components/Question";
 
 const api_key = 9116937670;
@@ -28,14 +29,7 @@ function App() {
       <Navigation />
       <Route path="/exam/:examId" component={RandomQuestion} />
       <Route path="/" exact>
-        {data ? (
-          <div>
-            <List title="Exams" data={data.exams} showButton />
-            <List title="Streams" data={data.streams} />
-          </div>
-        ) : (
-          <div>Loading ...</div>
-        )}
+        <Home data={data} />
       </Route>
     </BrowserRouter>
   );
