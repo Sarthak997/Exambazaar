@@ -36,8 +36,8 @@ export function NavItem(props) {
 // }
 
 export function Navigation() {
-  const [name, setName] = useState();
   const api_key = 9116937670;
+  const [name, setName] = useState();
   const [data, setData] = useState();
   useEffect(() => {
     axios

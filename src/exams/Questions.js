@@ -34,7 +34,7 @@ export function RandomQuestionFetch({ match }) {
       .catch((error) => {
         console.log(error);
       });
-  }, [match, examId]);
+  }, [examId]);
 
   useEffect(() => {
     if (currentIndex >= dataArray.length) {
@@ -72,23 +72,61 @@ export function RandomQuestionFetch({ match }) {
           data.questions.map((newQuest, key) => (
             <li>
               {newQuest.question}
-              {data &&
-                data.questions[key].options.map((option) => (
-                  <div>{option.option}</div>
+              {data.images &&
+                data.images.map((i) => (
+                  <div key={i}>
+                    <img src={i} alt="" />
+                  </div>
                 ))}
+              {data.questions[key].options ? (
+                newQuest.mcqma ? (
+                  data.questions[key].options.map((option) => (
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="exampleRadios"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="exampleRadios1">
+                        {option.option}{" "}
+                      </label>
+                    </div>
+                  ))
+                ) : (
+                  data.questions[key].options.map((option) => (
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="exampleRadios"
+                        id="exampleRadios1"
+                        value="option1"
+                      />
+                      <label class="form-check-label" for="exampleRadios1">
+                        {option.option}{" "}
+                      </label>
+                    </div>
+                  ))
+                )
+              ) : (
+                <div>
+                  <textarea placeholder="Enter your answer here..." />
+                </div>
+              )}
             </li>
           ))}
       </div>
       <nav aria-label="...">
-        <ul class="pagination pagination-md justify-content-center">
+        <ul className="pagination pagination-md justify-content-center">
           <li
-            class="page-item"
+            className="btn btn-primary my-2 my-lg-0 mr-4"
             onClick={() => setcurrentIndex(currentIndex - 1)}
           >
             Prev
           </li>
           <li
-            class="page-item"
+            className="btn btn-primary my-2 my-lg-0"
             onClick={() => setcurrentIndex(currentIndex + 1)}
           >
             Next
